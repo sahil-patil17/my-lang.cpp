@@ -1,4 +1,9 @@
 #include <string>
+#include <iostream>
+
+//   STAGE 1:
+//              CREATING A LEXER
+//
 
 // The lexer returns tokens [0-255] if it is an unknown character, otherwise one
 // of these for known things.
@@ -85,3 +90,14 @@ static int gettok()
     LastChar = getchar();
     return ThisChar;
 }
+
+// Test main function for Lexer Tokenization Test.
+// int main()
+// {
+//     while (true)
+//     {
+//         int tok = gettok();
+//         std::cout << "Got Token: " << tok << std::endl;
+//     }
+//     return 0;
+// }

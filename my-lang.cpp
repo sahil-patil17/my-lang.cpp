@@ -3,7 +3,6 @@
 
 //   STAGE 1:
 //              CREATING A LEXER
-//
 
 // The lexer returns tokens [0-255] if it is an unknown character, otherwise one
 // of these for known things.
@@ -101,3 +100,30 @@ static int gettok()
 //     }
 //     return 0;
 // }
+
+//   STAGE 2:
+//             ABSTRACT SYNTAX TREE
+
+class ExprAST
+{
+public:
+    virtual ~ExprAST() {}
+};
+
+class NumberExprAST : public ExprAST
+{
+    double Val;
+
+public:
+    NumberExprAST(double V) : Val(V) {} // initializer list in constructor
+    // in Java, we would do this.Val = V
+};
+
+//   STAGE 3:
+//             PARSING
+
+//   STAGE 4:
+//             CODE GENERATION PHASE
+
+//   STAGE 5:
+//             OPTIMIZING WITH JIT

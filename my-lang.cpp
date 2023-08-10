@@ -91,39 +91,46 @@ static int gettok()
 }
 
 // Test main function for Lexer Tokenization Test.
-// int main()
-// {
-//     while (true)
-//     {
-//         int tok = gettok();
-//         std::cout << "Got Token: " << tok << std::endl;
-//     }
-//     return 0;
-// }
+int main()
+{
+    while (true)
+    {
+        int tok = gettok();
+        std::cout << "Got Token: " << tok << std::endl;
+    }
+    return 0;
+}
 
 //   STAGE 2:
 //             ABSTRACT SYNTAX TREE
 
+/// ExprAST - Base class for all expressions.
 class ExprAST
 {
 public:
-    virtual ~ExprAST() {}
+    virtual ~ExprAST() = default;
 };
 
+/// NumberExprAST - Expression class for numeric literals such as "1.0".
 class NumberExprAST : public ExprAST
 {
     double Val;
 
 public:
-    NumberExprAST(double V) : Val(V) {} // initializer list in constructor
-    // in Java, we would do this.Val = V
+    NumberExprAST(double Val) : Val(Val) {}
+};
+
+/// VariableExprAST - Expression class for referencing a variable, such "a".
+class VariableExprAST : public ExprAST
+{
+    std::string Name;
+
+public:
+    VariableExprAST(const std::string &Name) : Name(Name) {}
 };
 
 //   STAGE 3:
-//             PARSING
+//             PARSING & CODE GENERATION PHASE
 
 //   STAGE 4:
-//             CODE GENERATION PHASE
-
-//   STAGE 5:
 //             OPTIMIZING WITH JIT
